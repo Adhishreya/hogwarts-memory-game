@@ -38,7 +38,7 @@ function CardComponent({tiles})
         setPosition([]);
         setValue([]);
       },5000);  
-      
+      clearInterval()
     }
     else if(position.length==2 && value[0]===value[1]){
         // score++;
@@ -48,10 +48,11 @@ function CardComponent({tiles})
         setValue([]);
     }
   },[position]);
-setInterval(()=>{
-  setPosition([]);
-  setValue([]);
-},8000);
+
+// setInterval(()=>{
+//   setPosition([]);
+//   setValue([]);
+// },8000);
     // setInterval(()=>)
       return (<div className="cardContainer">
         <h1>Score:{score}</h1>
