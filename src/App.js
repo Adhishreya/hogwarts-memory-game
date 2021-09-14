@@ -1,6 +1,7 @@
 import "./styles.css";
 import data from './data.json';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
+import TimerComponent from './TimerComponent';
 function CardComponent({tiles})
 {
   const [display,setDisplay] = useState(0);
@@ -61,7 +62,7 @@ function CardComponent({tiles})
             setDisplay(1);
             setPosition([...position,index]);
             setValue([...value,cards.id])
-          }}>{display && position.length<=2 &&  position.includes(index) || correctIndex.includes(cards.id)? <img src={cards.src} alt={cards.id}/> : null}</div>)
+          }}>{display && position.length<=2 &&  position.includes(index) || correctIndex.includes(cards.id)? <img src={cards.src} alt={cards.id}/> : <img src="https://m.media-amazon.com/images/I/71KVodZRuhL._SX425_.jpg"/>}</div>)
         }
       </div>);
     // []))
@@ -69,101 +70,12 @@ function CardComponent({tiles})
 
 }
 
-
-function TimerComponent()
-{
-  // var Interval;
-  // var min=0,s=0,ms=0;
-  // clearInterval(Interval);
-  // setInterval(()=>{
-  //     ms+=1;
-  //     if(ms>99)
-  //     {
-  //       s+=1;
-  //       ms=0;
-  //     }
-  //     if(s>59)
-  //     {
-  //       s=0;
-  //       min+=1;
-  //     }
-  // },100);
-  // return(<div>{min+" : "+s + " : "+ms}</div>);
-}
-
-
 export default function App() {
   const [input , setInput] = useState(0);
-  var Interval;
-  // var min=0,s=0,ms=0;
   const[min,setMin] = useState(0);
   const[s,setS] = useState(0);
   const[ms,setMs] = useState(0);
-  const [counter , setCounter] = useState([0,0,0])
-
-  const stopWatch = () =>
-  {
-    
-  }
-  // clearInterval(Interval);
-  // console.log(counter)
-  // setInterval(()=>{
-    // console.log("running")
-      // ms+=1;
-      // setMs(ms+1)
-      // setCounter([counter[0],counter[1],counter[2]+1]);
-      // if(counter[2]>99)
-      // if(ms>99)
-      // {
-      //   // s+=1;
-      //   // ms=0;
-      //   setMs(0);
-      //   setS(s+1);
-      //   // setCounter([counter[0],counter[1]+1,0]);
-      //   // setCounter([counter[0],counter[1],0],counter[2]);
-      // }
-      // // if(counter[1]>59)
-      // if(s>59)
-      // {
-      //   // s=0;
-      //   // min+=1;
-      //   setS(0);
-      //   setMin(min+1);
-      //   // setCounter([counter[0]+1,0,counter[2]]);
-      //   // setCounter(counter[0]+1,counter[1],counter[2]);
-      // }
-      // console.log(min+" : "+s + " : "+ms);
-      // setCounter([min,s,ms]);
-  // },1000);
-useEffect(()=>{
-  // setCounter([min,s,ms]);
-  console.log(min+" : "+s + " : "+ms);
-  setInterval(()=>{
-    // stopWatch();
-    setMs(ms+1);
-    if(ms>99)
-      {
-        // s+=1;
-        // ms=0;
-        setMs(0);
-        setS(s+1);
-        // setCounter([counter[0],counter[1]+1,0]);
-        // setCounter([counter[0],counter[1],0],counter[2]);
-      }
-      // if(counter[1]>59)
-      if(s>59)
-      {
-        // s=0;
-        // min+=1;
-        setS(0);
-        setMin(min+1);
-        // setCounter([counter[0]+1,0,counter[2]]);
-        // setCounter(counter[0]+1,counter[1],counter[2]);
-      }
-  },1000);
-
-},[ms])
-
+  const [start,setStart] = useState(false);
   return (
     <div className="App" style={{  }}>
       <h1>Number of grids to play with</h1>
@@ -172,6 +84,9 @@ useEffect(()=>{
       {/* <div>{min+" : "+s + " : "+ms}</div> */}
       <input name="tiles" type="radio" value="12" onChange={e=>setInput(e.target.value)}/>12
       <input name="tiles" type="radio" value="24" onChange={e=>setInput(e.target.value)}/>24
+
+      <h1><button onClick={()=>setStart(~start)}>Start</button></h1>
+      {/* <TimerComponent start={start}/> */}
       {input ? <CardComponent tiles={input}/>:null}
     </div>
   );

@@ -11,9 +11,10 @@ body,html,#root,.App
 }
 .tiles
 {
-  background: url('https://m.media-amazon.com/images/I/71KVodZRuhL._SX425_.jpg') no-repeat;
-  background-size: 10rem 10rem;
+  /* background: url('https://m.media-amazon.com/images/I/71KVodZRuhL._SX425_.jpg') no-repeat; */
+  /* background-size: 10rem 10rem; */
   width: 10rem;
+  box-shadow: 1rem 1rem 1rem 1rem rgb(199, 199, 199);
   border-radius:1rem;
   overflow: hidden;
   /* padding: 1rem; */
@@ -22,10 +23,9 @@ body,html,#root,.App
 img
 {
   width: 100%;
-  padding: 1rem;
   align-self: center;
   height: 100%;
-  /* display: none; */
+  box-shadow: 1rem 1rem rgb(199, 199, 199);
 }
 .cardContainer
 {
