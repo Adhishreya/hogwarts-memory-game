@@ -94,29 +94,82 @@ function TimerComponent()
 
 export default function App() {
   const [input , setInput] = useState(0);
-  // var Interval;
+  var Interval;
   // var min=0,s=0,ms=0;
-  // clearInterval(Interval);
-  // setInterval(()=>{
-  //     ms+=1;
-  //     if(ms>99)
-  //     {
-  //       s+=1;
-  //       ms=0;
-  //     }
-  //     if(s>59)
-  //     {
-  //       s=0;
-  //       min+=1;
-  //     }
-  // },100);
+  const[min,setMin] = useState(0);
+  const[s,setS] = useState(0);
+  const[ms,setMs] = useState(0);
+  const [counter , setCounter] = useState([0,0,0])
 
+  const stopWatch = () =>
+  {
+    
+  }
+  // clearInterval(Interval);
+  // console.log(counter)
+  // setInterval(()=>{
+    // console.log("running")
+      // ms+=1;
+      // setMs(ms+1)
+      // setCounter([counter[0],counter[1],counter[2]+1]);
+      // if(counter[2]>99)
+      // if(ms>99)
+      // {
+      //   // s+=1;
+      //   // ms=0;
+      //   setMs(0);
+      //   setS(s+1);
+      //   // setCounter([counter[0],counter[1]+1,0]);
+      //   // setCounter([counter[0],counter[1],0],counter[2]);
+      // }
+      // // if(counter[1]>59)
+      // if(s>59)
+      // {
+      //   // s=0;
+      //   // min+=1;
+      //   setS(0);
+      //   setMin(min+1);
+      //   // setCounter([counter[0]+1,0,counter[2]]);
+      //   // setCounter(counter[0]+1,counter[1],counter[2]);
+      // }
+      // console.log(min+" : "+s + " : "+ms);
+      // setCounter([min,s,ms]);
+  // },1000);
+useEffect(()=>{
+  // setCounter([min,s,ms]);
+  console.log(min+" : "+s + " : "+ms);
+  setInterval(()=>{
+    // stopWatch();
+    setMs(ms+1);
+    if(ms>99)
+      {
+        // s+=1;
+        // ms=0;
+        setMs(0);
+        setS(s+1);
+        // setCounter([counter[0],counter[1]+1,0]);
+        // setCounter([counter[0],counter[1],0],counter[2]);
+      }
+      // if(counter[1]>59)
+      if(s>59)
+      {
+        // s=0;
+        // min+=1;
+        setS(0);
+        setMin(min+1);
+        // setCounter([counter[0]+1,0,counter[2]]);
+        // setCounter(counter[0]+1,counter[1],counter[2]);
+      }
+  },1000);
+
+},[ms])
 
   return (
     <div className="App" style={{  }}>
       <h1>Number of grids to play with</h1>
       {/* <TimerComponent/> */}
-   
+      {/* <div>{counter[0]+" : "+counter[1] + " : "+counter[2]}</div> */}
+      {/* <div>{min+" : "+s + " : "+ms}</div> */}
       <input name="tiles" type="radio" value="12" onChange={e=>setInput(e.target.value)}/>12
       <input name="tiles" type="radio" value="24" onChange={e=>setInput(e.target.value)}/>24
       {input ? <CardComponent tiles={input}/>:null}
