@@ -12,12 +12,15 @@ function CardComponent({tiles,start})
   const [turned,setTilesTurned] =  useState(0);
   const [correctIndex,setCorrectIndex] = useState([]);
   const [update , setUpdate ]= useState(0);
-
+  const [obliviate,setObliviate] = useState(false)
   const updateInterval = (val) =>
   {
       setUpdate((update)=>update+1);
   }
 
+  const updateOverTime = (val) =>{
+        setObliviate(val);
+  }
   useEffect(()=>{
       var cards = []
       if(tiles==12)
@@ -67,8 +70,10 @@ function CardComponent({tiles,start})
 // },8000);
     // setInterval(()=>)
       return (<div className="">
+
+{!obliviate ?<div className="">
           {/* <TimerComponent start={start} update={updateInterval}/> */}
-          {start? <TimerHook/> : null}
+          {start? <TimerHook obliviate={updateOverTime}/> : null}
         <h1>Score:{score*10}</h1>
         <div>
         Number of tiles turned {turned}
@@ -84,6 +89,10 @@ function CardComponent({tiles,start})
           }}>{display && position.length<=2 &&  position.includes(index) || correctIndex.includes(cards.id)? <img src={cards.src} alt={cards.id}/> : <img src="https://m.media-amazon.com/images/I/71KVodZRuhL._SX425_.jpg"/>}</div>)
         }
         </div>
+
+        </div>:<h1>Oblivate!!!!</h1>}
+
+
       </div>);
     // []))
     

@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { useStopwatch } from 'react-timer-hook';
 
-function TimerHook() {
+function TimerHook({obliviate}) {
+  
   const {
     seconds,
     minutes,
@@ -12,18 +14,17 @@ function TimerHook() {
     reset,
   } = useStopwatch({ autoStart: true });
 
+  if(minutes >=1)
+  {
+    // alert("Oops time's up")
+    obliviate(true);
+
+  }
   return (
     <div style={{textAlign: 'center'}}>
-      {/* <h1>react-timer-hook</h1>
-      <p>Stopwatch Demo</p> */}
-      <div style={{fontSize: '100px'}}>
-        {/* <span>{days}</span>:<span>{hours}</span>: */}
+     <div style={{fontSize: '100px'}}>
         <span>{minutes}</span>:<span>{seconds}</span>
       </div>
-      {/* <p>{isRunning ? 'Running' : 'Not running'}</p>
-      <button onClick={start}>Start</button>
-      <button onClick={pause}>Pause</button>
-      <button onClick={reset}>Reset</button> */}
     </div>
   );
 }

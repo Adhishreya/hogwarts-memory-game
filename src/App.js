@@ -10,30 +10,17 @@ export default function App() {
   const[s,setS] = useState(0);
   const[ms,setMs] = useState(0);
   const [start,setStart] = useState(false);
-  // const load = () =>{
-  //   setInterval(()=>{
-  //     console.log(min+" : "+s + " : "+ms);
-  //       setMs((ms) => ms+10);
-  //       if(ms>=1000)
-  //       {
-  //         setS((s) => s+1);
-  //         setMs(0);
-  //       }
-  //       if(s>=60)
-  //       {
-  //         setMin((min) => min+1);
-  //         setS(0);
-  //       }
-  //   },10)
-  // }
   return (
-    <div className="App" style={{  }}>
-      <h1>Number of grids to play with</h1>
-      {/* <div>{counter[0]+" : "+counter[1] + " : "+counter[2]}</div> */}
-      {/* <div>{min+" : "+s + " : "+ms}</div> */}
-      
+    <div className="App">
+      <div className="first-div"><h1>Hogwarts Memory Game</h1></div>
+      <div className="second-div"><h2>Get on board!</h2></div>
+      <div className="third-div">
+        {/* <button>Let's begin</button> */}
+          <img src="https://m.media-amazon.com/images/I/41K1kDMDHcL._AC_SX425_.jpg"/>
+      </div>
       {!input? 
       <div>
+         <h1>Number of grids to play with</h1>
       <input name="tiles" type="radio" value="12" onChange={e=>setInput(e.target.value)}/>12
       <input name="tiles" type="radio" value="24" onChange={e=>setInput(e.target.value)}/>24
       </div>
