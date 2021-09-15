@@ -10,22 +10,22 @@ export default function App() {
   const[s,setS] = useState(0);
   const[ms,setMs] = useState(0);
   const [start,setStart] = useState(false);
-  const load = () =>{
-    setInterval(()=>{
-      console.log(min+" : "+s + " : "+ms);
-        setMs((ms) => ms+10);
-        if(ms>=1000)
-        {
-          setS((s) => s+1);
-          setMs(0);
-        }
-        if(s>=60)
-        {
-          setMin((min) => min+1);
-          setS(0);
-        }
-    },10)
-  }
+  // const load = () =>{
+  //   setInterval(()=>{
+  //     console.log(min+" : "+s + " : "+ms);
+  //       setMs((ms) => ms+10);
+  //       if(ms>=1000)
+  //       {
+  //         setS((s) => s+1);
+  //         setMs(0);
+  //       }
+  //       if(s>=60)
+  //       {
+  //         setMin((min) => min+1);
+  //         setS(0);
+  //       }
+  //   },10)
+  // }
   return (
     <div className="App" style={{  }}>
       <h1>Number of grids to play with</h1>
@@ -40,15 +40,15 @@ export default function App() {
       :<div>
       <h1>Return to main page</h1>
         <button onClick={()=>setInput(0)}><h1> back </h1></button>
-      <h1><button onClick={()=>{setStart(true);load()}}>Start</button></h1>
+      <h1><button onClick={()=>{setStart(true);}}>Start</button></h1>
       </div>
       }
 
       
       
       
-      {input ? <CardComponent tiles={input}/>:null}
-      <TimerComponent start={start}/> 
+      {input && start ? <CardComponent tiles={input} start={start}/>:null}
+      {/* <TimerComponent start={start}/>  */}
     </div>
   );
 }

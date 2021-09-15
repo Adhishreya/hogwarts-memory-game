@@ -1,6 +1,6 @@
-import React,{ useRef, useState } from "react";
+import React,{ useEffect, useRef, useState } from "react";
 
-const TimerComponent = ({start}) =>
+const TimerComponent = ({start,update}) =>
 {
     // const [timer,setTimer] = useState(0);
     const [timer, setTimer] = useState(0)
@@ -9,13 +9,14 @@ const TimerComponent = ({start}) =>
     const play = () =>
     {
         playingState.current = setInterval (()=>{
-            setTimer((timer) => timer + 1)  
-
-        },1000);
+            setTimer((timer) => timer + 1);  
+            // update(timer);
+        },2000);
     }
 
     const formatDate = () =>
     {
+        // const []
         // var milli = timer%100;
         // var sec = timer/100;
         // var min = timer/600;
@@ -25,9 +26,19 @@ const TimerComponent = ({start}) =>
         const getSeconds = `0${(timer % 60)}`.slice(-2)
         const minutes = `${Math.floor(timer / 60)}`
         const getMinutes = `0${minutes % 60}`.slice(-2)
-        const getHours = `0${Math.floor(timer / 3600)}`.slice(-2)
-    
+        const getHours = `0${Math.floor(timer / 3600)}`.slice(-2);
+
+        // useEffect(()=>{
+        //         update(getHours);
+        // },[getHours])
+
+        // var sec = `0${(timer % 60)}`.slice(-2);
+        // var minutes = '00';
+        // if(timer>59)
+        //  minutes = `${(Math.floor(timer / 60))}`.slice(-2);
+
         return `${getHours} : ${getMinutes} : ${getSeconds}`
+        // return `${minutes%60} : ${sec}`
     } 
     if(start)
     {

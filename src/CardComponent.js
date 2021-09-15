@@ -1,6 +1,8 @@
 import { useEffect, useState, useMemo } from "react";
 import data from './data.json';
-function CardComponent({tiles})
+import TimerComponent from './TimerComponent';
+import TimerHook from "./TimerHook";
+function CardComponent({tiles,start})
 {
   const [display,setDisplay] = useState(0);
   const [position,setPosition] = useState([]);
@@ -9,6 +11,13 @@ function CardComponent({tiles})
   const [score,setScore]=useState(0);
   const [turned,setTilesTurned] =  useState(0);
   const [correctIndex,setCorrectIndex] = useState([]);
+  const [update , setUpdate ]= useState(0);
+
+  const updateInterval = (val) =>
+  {
+      setUpdate((update)=>update+1);
+  }
+
   useEffect(()=>{
       var cards = []
       if(tiles==12)
@@ -34,8 +43,12 @@ function CardComponent({tiles})
       // console.log(value[0]!==value[1])
   // var Interaval =   
    setTimeout(()=>{
+
+    //    clearInterval();
+        // setUpdate(val);
         setPosition([]);
         setValue([]);
+
       },1000);  
       // clearInterval(Interaval)
     }
@@ -54,6 +67,8 @@ function CardComponent({tiles})
 // },8000);
     // setInterval(()=>)
       return (<div className="">
+          {/* <TimerComponent start={start} update={updateInterval}/> */}
+          {start? <TimerHook/> : null}
         <h1>Score:{score*10}</h1>
         <div>
         Number of tiles turned {turned}
