@@ -10,7 +10,7 @@ function CardComponent({tiles})
   const [cardComponents,setCardComponents] = useState([]);
   const [value,setValue] = useState([]);
   const [score,setScore]=useState(0);
-
+  const [turned,setTilesTurned] =  useState(0);
   const [correctIndex,setCorrectIndex] = useState([]);
   useEffect(()=>{
       var cards = []
@@ -34,12 +34,13 @@ function CardComponent({tiles})
   useEffect(()=>{
     if(position.length==2 && value[0]!== value[1])
     {
-      console.log(value[0]!==value[1])
-      setTimeout(()=>{
+      // console.log(value[0]!==value[1])
+  // var Interaval =   
+   setTimeout(()=>{
         setPosition([]);
         setValue([]);
-      },5000);  
-      clearInterval()
+      },1000);  
+      // clearInterval(Interaval)
     }
     else if(position.length==2 && value[0]===value[1]){
         // score++;
@@ -55,15 +56,22 @@ function CardComponent({tiles})
 //   setValue([]);
 // },8000);
     // setInterval(()=>)
-      return (<div className="cardContainer">
-        <h1>Score:{score}</h1>
+      return (<div className="">
+        <h1>Score:{score*10}</h1>
+        <div>
+        Number of tiles turned {turned}
+      </div>
+      <div className="cardContainer">
         {
           cardComponents.map((cards,index)=><div className="tiles" key={index} onClick={()=>{
             setDisplay(1);
-            setPosition([...position,index]);
-            setValue([...value,cards.id])
+            setTilesTurned((turned) => turned+1);
+            if(! position.includes(index))
+            {setPosition([...position,index]);
+            setValue([...value,cards.id])}
           }}>{display && position.length<=2 &&  position.includes(index) || correctIndex.includes(cards.id)? <img src={cards.src} alt={cards.id}/> : <img src="https://m.media-amazon.com/images/I/71KVodZRuhL._SX425_.jpg"/>}</div>)
         }
+        </div>
       </div>);
     // []))
     
@@ -79,6 +87,7 @@ export default function App() {
   return (
     <div className="App" style={{  }}>
       <h1>Number of grids to play with</h1>
+   
       {/* <TimerComponent/> */}
       {/* <div>{counter[0]+" : "+counter[1] + " : "+counter[2]}</div> */}
       {/* <div>{min+" : "+s + " : "+ms}</div> */}
@@ -86,7 +95,7 @@ export default function App() {
       <input name="tiles" type="radio" value="24" onChange={e=>setInput(e.target.value)}/>24
 
       <h1><button onClick={()=>setStart(~start)}>Start</button></h1>
-      {/* <TimerComponent start={start}/> */}
+      <TimerComponent start={start}/> 
       {input ? <CardComponent tiles={input}/>:null}
     </div>
   );
