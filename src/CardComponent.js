@@ -12,7 +12,8 @@ function CardComponent({tiles,start})
   const [turned,setTilesTurned] =  useState(0);
   const [correctIndex,setCorrectIndex] = useState([]);
   const [update , setUpdate ]= useState(0);
-  const [obliviate,setObliviate] = useState(false)
+  const [obliviate,setObliviate] = useState(false);
+  const [win,setWin] = useState(false);
   const updateInterval = (val) =>
   {
       setUpdate((update)=>update+1);
@@ -61,18 +62,18 @@ function CardComponent({tiles,start})
         setCorrectIndex([...correctIndex,value[0]]);
         setPosition([]);
         setValue([]);
+        console.log(score*10 === 50 && tiles === 12)
+        if(score*10 === 50 && tiles === 12 || score*10 === 110 && tiles === 24)
+        {
+            setWin(true);
+            console.log(win)
+        }
     }
   },[position]);
-
-// setInterval(()=>{
-//   setPosition([]);
-//   setValue([]);
-// },8000);
-    // setInterval(()=>)
       return (<div className="">
 
-{!obliviate ?<div className="">
-          {/* <TimerComponent start={start} update={updateInterval}/> */}
+<div>
+{win ? <h1>Congratulations!!!</h1> : !obliviate ?<div className="">
           {start? <TimerHook obliviate={updateOverTime}/> : null}
         <h1>Score:{score*10}</h1>
         <div>
@@ -91,6 +92,8 @@ function CardComponent({tiles,start})
         </div>
 
         </div>:<h1>Oblivate!!!!</h1>}
+</div>
+
 
 
       </div>);

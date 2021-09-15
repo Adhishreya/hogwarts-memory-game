@@ -14,7 +14,7 @@ function TimerHook({obliviate}) {
     reset,
   } = useStopwatch({ autoStart: true });
 
-  if(minutes >=1)
+  if(minutes >=5)
   {
     // alert("Oops time's up")
     obliviate(true);
