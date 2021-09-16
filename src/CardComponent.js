@@ -40,29 +40,20 @@ function CardComponent({tiles,start})
 
       setCardComponents(cards);
   },[tiles]);
-
   useEffect(()=>{
     if(position.length==2 && value[0]!== value[1])
     {
-      // console.log(value[0]!==value[1])
-  // var Interaval =   
    setTimeout(()=>{
-
-    //    clearInterval();
-        // setUpdate(val);
         setPosition([]);
         setValue([]);
-
       },1000);  
-      // clearInterval(Interaval)
     }
     else if(position.length==2 && value[0]===value[1]){
-        // score++;
         setScore(score+1);
         setCorrectIndex([...correctIndex,value[0]]);
         setPosition([]);
         setValue([]);
-        console.log(score*10 === 50 && tiles === 12)
+        console.log(score*10, tiles)
         if(score*10 === 50 && tiles === 12 || score*10 === 110 && tiles === 24)
         {
             setWin(true);
@@ -93,11 +84,7 @@ function CardComponent({tiles,start})
 
         </div>:<h1>Oblivate!!!!</h1>}
 </div>
-
-
-
       </div>);
-    // []))
     
 
 }
