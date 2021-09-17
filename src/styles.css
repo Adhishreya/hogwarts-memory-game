@@ -24,11 +24,12 @@ body,html,#root,.App
 {
   /* background: url('https://m.media-amazon.com/images/I/71KVodZRuhL._SX425_.jpg') no-repeat; */
   /* background-size: 10rem 10rem; */
-  width: 10rem;
+  width: 60%;
   box-shadow: 0.5rem 0.5rem  rgb(199, 199, 199);
   border-radius:1rem;
   overflow: hidden;
   /* padding: 1rem; */
+  margin: auto;
   height: 10rem;
 }
 .tiles img
@@ -297,17 +298,6 @@ input[type="radio"]{
 
 
 
-@keyframes fly {
-  50%{
-    transform: translateX(2rem);
-    left: 100%;
-  }
-  100%{
-    /* transform: translateX(2rem); */
-    margin-left: 100%;
-  }
-  
-}
 @media screen and (max-width:930px) {
   .cardContainer
   {
@@ -325,7 +315,7 @@ input[type="radio"]{
   }
   .tiles
   {
-    width: 6rem;
+    /* width: 6rem; */
     height: 6rem;
   }
   .decide-play

@@ -24,7 +24,7 @@ const Main = ({visible}) =>
         {input && start ?
 
             <div className="game-begin">
-            <div className="back-button"><button className="back" onClick={()=>{setInput(0);setStart(false);}}></button><span>Return to main page</span></div>
+            <div className="back-button"><button className="back" onClick={()=>{setInput(0);setStart(false);}}></button><span>Back</span></div>
             
             <CardComponent tiles={input} start={start}/>
             </div>
