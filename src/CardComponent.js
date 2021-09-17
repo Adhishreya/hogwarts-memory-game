@@ -33,14 +33,12 @@ function CardComponent({tiles,start})
           cards = data;
       }
       cards = cards.concat(cards);
-  // cardComponents = cardComponents.reduce((curVal,nextVal,index,array)=>{
-      // return cardComponents.concat([curVal,nextVal]);
-      // },[]);
       cards.sort(()=>Math.random()-0.3);
 
       setCardComponents(cards);
   },[tiles]);
   useEffect(()=>{
+    // console.log(score*10 == 60 && tiles == Number(12))
     if(position.length==2 && value[0]!== value[1])
     {
    setTimeout(()=>{
@@ -53,13 +51,14 @@ function CardComponent({tiles,start})
         setCorrectIndex([...correctIndex,value[0]]);
         setPosition([]);
         setValue([]);
-        console.log(score*10, tiles)
-        if(score*10 === 50 && tiles === 12 || score*10 === 110 && tiles === 24)
+        
+        
+    }
+    if(score*10 == 60 && tiles == Number(12) || score*10 == 120 && tiles == Number(24))
         {
             setWin(true);
             console.log(win)
         }
-    }
   },[position]);
       return (<div className="">
 

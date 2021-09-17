@@ -15,49 +15,38 @@ const Main = ({visible}) =>
         return null
     }
     return(
-        <div className="play-main-home">
-            <div className="home-icon" onClick={()=>visible(false)}>
-                <div>HOME</div>
-                <img src="https://m.media-amazon.com/images/I/71KVodZRuhL._SX425_.jpg"/>
-            </div>
-          
-
+    <div className="play-main-home">
+        <div className="home-icon" onClick={()=>visible(false)}>
+        <div>HOME</div>
+        <img src="https://m.media-amazon.com/images/I/71KVodZRuhL._SX425_.jpg"/>
+        </div>
 
         {input && start ?
-        <div className="game-begin">
-        <h1>Return to main page</h1>
-          <button onClick={()=>{setInput(0);setStart(false);}}><h1> back </h1></button>
-        <CardComponent tiles={input} start={start}/>
-        </div>:
+
+            <div className="game-begin">
+            <div className="back-button"><button className="back" onClick={()=>{setInput(0);setStart(false);}}></button><span>Return to main page</span></div>
+            
+            <CardComponent tiles={input} start={start}/>
+            </div>
+        :
         <div className="decide-play">
-           <h1>Number of grids to play with</h1>
-        <div className="wrapper">
-            <input name="tiles" type="radio" value="12" id="option-1" onChange={e=>setInput(e.target.value)}/>
-            <input name="tiles" type="radio" value="24" id="option-2" onChange={e=>setInput(e.target.value)}/>  
-            <label for="option-1" className="option option-1">
-            <div className="dot"></div>
-            <span>12</span>
-            </label>
-            <label for="option-2" className="option option-2">
-            <div className="dot"></div>
-            <span>24</span>
-            </label>
+            <h1>Number of grids to play with</h1>
+                <div className="wrapper">
+                <input name="tiles" type="radio" value="12" id="option-1" onChange={e=>setInput(e.target.value)}/>
+                <input name="tiles" type="radio" value="24" id="option-2" onChange={e=>setInput(e.target.value)}/>  
+                <label htmlFor="option-1" className="option option-1">
+                <div className="dot"></div>
+                <span>12</span>
+                </label>
+                <label htmlFor="option-2" className="option option-2">
+                <div className="dot"></div>
+                <span>24</span>
+                </label>
+            </div>
+            {visibleFunction()}
         </div>
-        
-        <h1>{visibleFunction()}</h1>
-        </div>
-                
-        
         }
-        {/* {} */}
-        {/* } */}
-  
-        
-        
-        
-       
-        {/* <TimerComponent start={start}/>  */}
-        </div>
+    </div>
     )
 }
 export default Main;

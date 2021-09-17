@@ -41,9 +41,11 @@ body,html,#root,.App
 .cardContainer
 {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr)) ;
+  grid-template-columns: repeat(4,minmax(200px,1fr)) ;
   grid-auto-rows: auto;
   width: 90%;
+  align-items:  center;
+  justify-content: center;
   margin: auto;
   height: 80%;
   padding: 1rem;
@@ -55,7 +57,6 @@ body,html,#root,.App
   
   background: url('https://images.unsplash.com/photo-1618944913480-b67ee16d7b77?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=90') no-repeat ;
   background-size: cover;
-  /* background: blue; */
   width: 100%;
   height: 100%;
   text-align: center;
@@ -127,7 +128,7 @@ body,html,#root,.App
 }
 .play-main-home
 {
-  background: url('https://images.unsplash.com/photo-1571918372905-b98f68fe214a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=632&q=80') scroll 50% 0rem no-repeat;
+  /* background: url('https://images.unsplash.com/photo-1571918372905-b98f68fe214a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=632&q=80') scroll 50% 0rem no-repeat; */
   background-size: 50% 100%;
   width: 100%;
   height: 100%;
@@ -152,13 +153,21 @@ body,html,#root,.App
 }
 .decide-play
 {
-  width: 25%;
   margin: 5% auto;
+
   font-weight: 800;
   border-radius: 0.4rem;
+  display: flex;
+  flex-direction: column;
   color: aliceblue;
   font-size: 10px;
-  box-shadow: 0.5rem 0.5rem 1rem 1rem rgb(230, 225, 225);
+  /* box-shadow: 0.5rem 0.5rem 1rem 1rem rgb(230, 225, 225); */
+  background: url('https://images.unsplash.com/photo-1571918372905-b98f68fe214a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=632&q=80') scroll 50% -1rem no-repeat;
+  position: relative;
+  background-size: 60% 100%;
+  width: 100%;
+  height: 100%;
+  max-width: 1440px;
 }
 .decide-play input
 {
@@ -171,6 +180,7 @@ body,html,#root,.App
   color: aliceblue;
   font-weight: 700;
   padding: 0.5rem 1rem;
+  /* max-width: 1440px; */
   margin: 2% auto;
   border: none;
   background-color: #10141b;
@@ -185,16 +195,45 @@ body,html,#root,.App
 .game-begin
 {
   background-color: #10141b;
+  color: #d9d9d9;
 }
+.back
+{
+  background-color: #10141b;
+  border: none;
+  width: 2rem;
+  /* transform: rotate(45deg); */
+  height: 2rem;
+  width: 0;
+	height: 0;
+	border-top: 25px solid transparent;
+	border-left: 50px solid rgb(179, 88, 88);
+	border-bottom: 25px solid transparent;
+  transform: rotate(180deg);
+}
+.back-button
+{
+  position: absolute;
+  top: 1rem;
+  left: 80%;
+  margin-bottom:1rem ;
+}
+/* .back span
+{
+  height: 2rem;
+  width: rem;
+  background-color: red;
+} */
 
 
 .wrapper .option{
   background: #fff;
   height: 100%;
-  width: 100%;
+  width: 5rem;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
+  justify-content: center;
   margin: 0 10px;
   border-radius: 5px;
   cursor: pointer;
@@ -269,14 +308,30 @@ input[type="radio"]{
   }
   
 }
-@media screen and (max-width:680px) {
+@media screen and (max-width:930px) {
   .cardContainer
   {
     width: 80%;
+    grid-template-columns: repeat(3,minmax(80px,1fr)) ;
+
+  }
+}
+@media screen and (max-width:645px) {
+  .cardContainer
+  {
+    width: 80%;
+    grid-template-columns: repeat(2,minmax(80px,1fr)) ;
+
+  }
+  .tiles
+  {
+    width: 6rem;
+    height: 6rem;
   }
   .decide-play
   {
     width: 100%;
+    background-size: cover;
     box-shadow: none;
   }
   .play-main-home
