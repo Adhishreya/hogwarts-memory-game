@@ -196,6 +196,7 @@ body,html,#root,.App
 .game-begin
 {
   background-color: #10141b;
+  height: 100%;
   color: #d9d9d9;
 }
 .back
@@ -226,7 +227,27 @@ body,html,#root,.App
   background-color: red;
 } */
 
+.obliviate
+{
+  width: 25%;
+  height: 25%;
+  margin: auto;
+  border-radius: 50%;
+}
 
+
+.won
+{
+  width: 25%;
+  height: 25%;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.winner
+{
+  margin: auto;
+}
 .wrapper .option{
   background: #fff;
   height: 100%;

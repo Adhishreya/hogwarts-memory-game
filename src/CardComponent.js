@@ -38,7 +38,6 @@ function CardComponent({tiles,start})
       setCardComponents(cards);
   },[tiles]);
   useEffect(()=>{
-    // console.log(score*10 == 60 && tiles == Number(12))
     if(position.length==2 && value[0]!== value[1])
     {
    setTimeout(()=>{
@@ -63,7 +62,7 @@ function CardComponent({tiles,start})
       return (<div className="">
 
 <div>
-{win ? <h1>Congratulations!!!</h1> : !obliviate ?<div className="">
+{win ? <div className="winner"><h3>Congratulations!!!</h3><h4>Your score : {score*10}</h4><h5>Looks like you've won the house cup!!!</h5><img className="won" src="https://i.pinimg.com/736x/78/22/ee/7822eed7c609befdffbeebfabd066906.jpg"/></div> : !obliviate ?<div className="">
           {start? <TimerHook obliviate={updateOverTime}/> : null}
         <h1>Score:{score*10}</h1>
         <div>
@@ -81,7 +80,7 @@ function CardComponent({tiles,start})
         }
         </div>
 
-        </div>:<h1>Oblivate!!!!</h1>}
+        </div>:<div><h4>Your score : {score*10}</h4><h5>Looks like you were cast a memory charm</h5><img className="obliviate" src="https://cdn.dribbble.com/users/100845/screenshots/13941430/media/cc3abbd050bb0fa2c345b48bb2638323.png?compress=1&resize=1600x1200"/></div>}
 </div>
       </div>);
     
