@@ -25,7 +25,7 @@ body,html,#root,.App
   /* background: url('https://m.media-amazon.com/images/I/71KVodZRuhL._SX425_.jpg') no-repeat; */
   /* background-size: 10rem 10rem; */
   width: 10rem;
-  box-shadow: 1rem 1rem 1rem 1rem rgb(199, 199, 199);
+  box-shadow: 0.5rem 0.5rem  rgb(199, 199, 199);
   border-radius:1rem;
   overflow: hidden;
   /* padding: 1rem; */
@@ -36,7 +36,7 @@ body,html,#root,.App
   width: 100%;
   align-self: center;
   height: 100%;
-  box-shadow: 1rem 1rem rgb(199, 199, 199);
+  box-shadow: 0.5rem 0.5rem rgb(199, 199, 199);
 }
 .cardContainer
 {
@@ -117,6 +117,147 @@ body,html,#root,.App
 {
   animation: fly 2s 0;
 }
+.third-div h3
+{
+  position: relative;
+  font-size: 3em;
+  top: 25%;
+  z-index: 1;
+  color: darkred;
+}
+.play-main-home
+{
+  background: url('https://images.unsplash.com/photo-1571918372905-b98f68fe214a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=632&q=80') scroll 50% 0rem no-repeat;
+  background-size: 50% 100%;
+  width: 100%;
+  height: 100%;
+  max-width: 1440px;
+}
+.home-icon 
+{
+  width: 3rem;
+  height: 3rem;
+  color: transparent;
+  position: relative;
+  margin: 2%;
+}
+.home-icon img
+{
+  width: 100%;
+  border-radius: 50%;
+}
+.home-icon:hover
+{
+  color: aliceblue;
+}
+.decide-play
+{
+  width: 25%;
+  margin: 5% auto;
+  font-weight: 800;
+  border-radius: 0.4rem;
+  color: aliceblue;
+  font-size: 10px;
+  box-shadow: 0.5rem 0.5rem 1rem 1rem rgb(230, 225, 225);
+}
+.decide-play input
+{
+  padding: 1rem;
+  background: tomato;
+}
+
+.decide-play button
+{
+  color: aliceblue;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  margin: 2% auto;
+  border: none;
+  background-color: #10141b;
+
+}
+.wrapper
+{
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.game-begin
+{
+  background-color: #10141b;
+}
+
+
+.wrapper .option{
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 10px;
+  /* border: 2px solid lightgrey; */
+  transition: all 0.3s ease;
+}
+.wrapper .option .dot{
+  height: 20px;
+  width: 20px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  position: relative;
+}
+.wrapper .option .dot::before{
+  position: absolute;
+  content: "";
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  background: #10141b;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(1.5);
+  transition: all 0.3s ease;
+}
+input[type="radio"]{
+  display: none;
+}
+#option-1:checked:checked ~ .option-1,
+#option-2:checked:checked ~ .option-2{
+  /* border-color: #0069d9; */
+  background: #10141b;
+}
+#option-1:checked:checked ~ .option-1 .dot,
+#option-2:checked:checked ~ .option-2 .dot{
+  background: #fff;
+}
+#option-1:checked:checked ~ .option-1 .dot::before,
+#option-2:checked:checked ~ .option-2 .dot::before{
+  opacity: 1;
+  transform: scale(1);
+}
+.wrapper .option span{
+  font-size: 20px;
+  color: #808080;
+}
+#option-1:checked:checked ~ .option-1 span,
+#option-2:checked:checked ~ .option-2 span{
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
 @keyframes fly {
   50%{
     transform: translateX(2rem);
@@ -133,5 +274,13 @@ body,html,#root,.App
   {
     width: 80%;
   }
-  
+  .decide-play
+  {
+    width: 100%;
+    box-shadow: none;
+  }
+  .play-main-home
+  {
+    background-size: cover;
+  }
 }

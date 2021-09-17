@@ -8,24 +8,48 @@ const Main = ({visible}) =>
     const[s,setS] = useState(0);
     const[ms,setMs] = useState(0);
     const [start,setStart] = useState(false);
+    const visibleFunction = () =>
+    {
+        if(input)
+        {return (<button onClick={()=>{setStart(true);}}>Start</button>)}
+        return null
+    }
     return(
-        <div >
-            <h1 onClick={()=>visible(false)}>HOME</h1>
+        <div className="play-main-home">
+            <div className="home-icon" onClick={()=>visible(false)}>
+                <div>HOME</div>
+                <img src="https://m.media-amazon.com/images/I/71KVodZRuhL._SX425_.jpg"/>
+            </div>
           
 
 
-        {start ?
-        <div>
+        {input && start ?
+        <div className="game-begin">
         <h1>Return to main page</h1>
           <button onClick={()=>{setInput(0);setStart(false);}}><h1> back </h1></button>
-          {input && start ? <CardComponent tiles={input} start={start}/>:null}
-        </div>:!input? 
-        <div>
+        <CardComponent tiles={input} start={start}/>
+        </div>:
+        <div className="decide-play">
            <h1>Number of grids to play with</h1>
-        <input name="tiles" type="radio" value="12" onChange={e=>setInput(e.target.value)}/>12
-        <input name="tiles" type="radio" value="24" onChange={e=>setInput(e.target.value)}/>24
+        <div className="wrapper">
+            <input name="tiles" type="radio" value="12" id="option-1" onChange={e=>setInput(e.target.value)}/>
+            <input name="tiles" type="radio" value="24" id="option-2" onChange={e=>setInput(e.target.value)}/>  
+            <label for="option-1" className="option option-1">
+            <div className="dot"></div>
+            <span>12</span>
+            </label>
+            <label for="option-2" className="option option-2">
+            <div className="dot"></div>
+            <span>24</span>
+            </label>
         </div>
-        :<h1><button onClick={()=>{setStart(true);}}>Start</button></h1>}
+        
+        <h1>{visibleFunction()}</h1>
+        </div>
+                
+        
+        }
+        {/* {} */}
         {/* } */}
   
         
